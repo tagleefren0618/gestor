@@ -1,0 +1,18 @@
+.modal-dialog {
+    margin-left: auto !important;
+    margin-right: 20px !important;
+    margin-top: 70px !important;
+  }
+  
+  .modal-content {
+    margin-top: auto;
+  }
+
+  .carousel-container {
+    max-width: 800px; /* Ancho máximo del carousel */
+  margin: 0 auto; /* Centro horizontalmente */
+  display: flex;
+  justify-content: center; /* Centro verticalmente */
+  align-items: center; /* Centro verticalmente */
+  height: 100vh; /* Altura total de la pantalla */
+  }
