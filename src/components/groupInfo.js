@@ -4,10 +4,10 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 const GroupInfo = ({ onBackButtonClick }) => {
   return (
     <div>
-        <h2>
-        <ArrowBackIcon onClick={onBackButtonClick} /> Atrás
-      </h2>
-      <h2>Docente</h2>
+        <h1 style={{ cursor: "pointer", fontSize: "22px" }} onClick={onBackButtonClick} >
+        <ArrowBackIcon /> Atrás
+      </h1>
+      <h2 className="mt-4">Docente</h2>
       
     </div>
   );

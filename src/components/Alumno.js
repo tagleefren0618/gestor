@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import CourseDetails from './CourseDetail'; // Asumiendo que tienes un componente para mostrar los detalles de la prueba
+import CourseDetails from './CourseDetail';
+import Resultados from './ResultadosAlumnos'; // Importa el componente Resultados aquí
 import clinicos from "../images/clinicos.jpg";
 import psicologicas from "../images/psicologicas.webp";
 import historial from "../images/historial.jpg";
@@ -8,6 +9,7 @@ import aprendizaje from "../images/aprendizaje.webp";
 const AlumnosView = () => {
   const [selectedTest, setSelectedTest] = useState(null);
   const [showTestDetails, setShowTestDetails] = useState(false);
+  const [showResultados, setShowResultados] = useState(false); // Estado para controlar si se muestra Resultados
 
   const tests = [
     { 
@@ -32,41 +34,46 @@ const AlumnosView = () => {
       id: 4, 
       title: 'Pruebas de Estilo de Aprendizaje', 
       imageUrl: aprendizaje,
-      options: ['Interpretación', 'Estrategias']
+      options: ['Resultado', 'Interpretación', 'Estrategias']
     },
     // Otros tipos de pruebas...
   ];
-  // Datos de diferentes tipos de pruebas
-  // const tests = [
-  //   { id: 1, title: 'Cuestionarios Clínicos', imageUrl: clinicos },
-  //   { id: 2, title: 'Pruebas Psicológicas', imageUrl: psicologicas },
-  //   { id: 3, title: 'Historia Personal', imageUrl: historial },
-  //   { id: 4, title: 'Pruebas de Estilo de Aprendizaje', imageUrl: aprendizaje },
-  // ];
 
-  // Función para manejar el clic en el botón "Ver detalles"
   const handleViewTest = (test) => {
     setSelectedTest(test);
     setShowTestDetails(true);
   };
 
+  // Función para mostrar los resultados
+  const handleViewResults = () => {
+    setShowResultados(true);
+  };
+
+  // Función para cerrar los detalles de la prueba
+  const handleCloseDetails = () => {
+    setShowTestDetails(false);
+  };
+
   return (
     <div className="container mt-4">
-      {/* Mostrar CourseDetails si showTestDetails es true */}
       {showTestDetails ? (
-        <CourseDetails test={selectedTest} onClose={() => setShowTestDetails(false)} />
+        <CourseDetails 
+          test={selectedTest} 
+          onClose={handleCloseDetails} 
+          onViewResults={handleViewResults} // Pasar la función para mostrar los resultados
+        />
+      ) : showResultados ? ( // Mostrar Resultados si showResultados es true
+        <Resultados />
       ) : (
         <div>
           <h2 className="mb-4">Cuestionarios</h2>
           <div className="row">
-            {/* Mapear la lista de pruebas y mostrar cada una */}
             {tests.map(test => (
               <div key={test.id} className="col-md-4 mb-4">
                 <div className="card">
                   <img src={test.imageUrl} className="card-img-top" alt={test.title} />
                   <div className="card-body">
                     <h5 className="card-title">{test.title}</h5>
-                    {/* Botón para ver detalles de la prueba */}
                     <button onClick={() => handleViewTest(test)} className="btn btn-primary">Ver detalles</button>
                   </div>
                 </div>

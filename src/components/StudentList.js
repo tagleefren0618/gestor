@@ -1,14 +1,14 @@
 import React from "react";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const StudentList = ({ selectedGroup, onBackButtonClick }) => {
   const students = selectedGroup?.students || []; // Verifica si selectedGroup es null
-  
+
   return (
     <div>
-      <h2>
-        <ArrowBackIcon onClick={onBackButtonClick} /> Atrás
-      </h2>
+      <h1 style={{ cursor: "pointer", fontSize: '22px'}} onClick={onBackButtonClick}>
+        <ArrowBackIcon /> Atrás
+      </h1>
       {selectedGroup ? (
         <div>
           <h3>Alumnos - {selectedGroup.name}</h3>
