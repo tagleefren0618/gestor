@@ -7,8 +7,17 @@
 </head>
 <body>
   <div id="root"></div>
-  <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
-  <script src="./src/index.js"></script>
+  <script type="module">
+    import React from 'https://unpkg.com/react@17/umd/react.production.min.js';
+    import ReactDOM from 'https://unpkg.com/react-dom@17/umd/react-dom.production.min.js';
+    import App from './App.js'; // Ajusta la ruta según sea necesario
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    );
+  </script>
 </body>
 </html>
