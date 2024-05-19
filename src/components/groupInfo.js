@@ -7,7 +7,7 @@ const GroupInfo = ({ onBackButtonClick }) => {
         <h1 style={{ cursor: "pointer", fontSize: "22px" }} onClick={onBackButtonClick} >
         <ArrowBackIcon /> Atrás
       </h1>
-      <h2 className="mt-4">Docente</h2>
+      <h2 className="mt-4">Docentes</h2>
       
     </div>
   );
